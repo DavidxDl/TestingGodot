@@ -1,0 +1,161 @@
+[gd_scene load_steps=17 format=3 uid="uid://cb46bmauuweuk"]
+
+[ext_resource type="Script" path="res://Scenes/player.gd" id="1_1k4q3"]
+[ext_resource type="Texture2D" uid="uid://bn77ljof578wy" path="res://Sprites/Alien sprites/alienBlue_hurt.png" id="2_in30s"]
+[ext_resource type="Texture2D" uid="uid://b1y8fynirxf1l" path="res://Sprites/alienGreen.png" id="2_xvjqw"]
+[ext_resource type="Texture2D" uid="uid://dd7bpqsm6lcoa" path="res://Sprites/Alien sprites/alienGreen_stand.png" id="3_iyuin"]
+[ext_resource type="Texture2D" uid="uid://cdi3j1qmpa07y" path="res://Sprites/Alien sprites/alienGreen_duck.png" id="3_n2u5t"]
+[ext_resource type="Texture2D" uid="uid://cu3j20ynfjx1k" path="res://Sprites/Alien sprites/alienGreen_jump.png" id="4_f6dwi"]
+[ext_resource type="Texture2D" uid="uid://sx8nr44ktbah" path="res://Sprites/Alien sprites/alienGreen_walk1.png" id="5_n1xe2"]
+[ext_resource type="Texture2D" uid="uid://iws3smvd8vrq" path="res://Sprites/Alien sprites/alienGreen_walk2.png" id="6_lmibi"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i747w"]
+radius = 25.0
+height = 100.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8qiq"]
+atlas = ExtResource("2_xvjqw")
+region = Rect2(69, 92, 71, 92)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g7mks"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_in30s")
+}],
+"loop": true,
+"name": &"Damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_n2u5t")
+}],
+"loop": true,
+"name": &"Duck",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8qiq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_iyuin")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_f6dwi")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_n1xe2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_lmibi")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tn3yo"]
+
+[sub_resource type="Animation" id="Animation_n4x7u"]
+resource_name = "duck"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath(".:shape")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333, 0.366667, 0.4, 0.433333, 0.466667, 0.5, 0.533333, 0.566667, 0.6, 0.633333, 0.666667, 0.7, 0.733333, 0.766667, 0.8, 0.833333, 0.866667, 0.9, 0.933333, 0.966667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [SubResource("CircleShape2D_tn3yo"), SubResource("CircleShape2D_tn3yo"), SubResource("CircleShape2D_tn3yo"), SubResource("CircleShape2D_tn3yo"), SubResource("CircleShape2D_tn3yo"), SubResource("CircleShape2D_tn3yo"), SubResource("CircleShape2D_tn3yo"), SubResource("CircleShape2D_tn3yo"), SubResource("CircleShape2D_tn3yo"), SubResource("CircleShape2D_tn3yo"), SubResource("CircleShape2D_tn3yo"), SubResource("CircleShape2D_tn3yo"), SubResource("CircleShape2D_tn3yo"), SubResource("CircleShape2D_tn3yo"), SubResource("CircleShape2D_tn3yo"), SubResource("CircleShape2D_tn3yo"), SubResource("CircleShape2D_tn3yo"), SubResource("CircleShape2D_tn3yo"), SubResource("CircleShape2D_tn3yo"), SubResource("CircleShape2D_tn3yo"), SubResource("CircleShape2D_tn3yo"), SubResource("CircleShape2D_tn3yo"), SubResource("CircleShape2D_tn3yo"), SubResource("CircleShape2D_tn3yo"), SubResource("CircleShape2D_tn3yo"), SubResource("CircleShape2D_tn3yo"), SubResource("CircleShape2D_tn3yo"), SubResource("CircleShape2D_tn3yo"), SubResource("CircleShape2D_tn3yo"), SubResource("CircleShape2D_tn3yo"), SubResource("CircleShape2D_tn3yo")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:shape:radius")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333, 0.366667, 0.4, 0.433333, 0.466667, 0.5, 0.533333, 0.566667, 0.6, 0.633333, 0.666667, 0.7, 0.733333, 0.766667, 0.8, 0.833333, 0.866667, 0.9, 0.933333, 0.966667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [28.51, 28.51, 28.51, 28.51, 28.51, 28.51, 28.51, 28.51, 28.51, 28.51, 28.51, 28.51, 28.51, 28.51, 28.51, 28.51, 28.51, 28.51, 28.51, 28.51, 28.51, 28.51, 28.51, 28.51, 28.51, 28.51, 28.51, 28.51, 28.51, 28.51, 28.51]
+}
+
+[sub_resource type="Animation" id="Animation_yvifc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:shape")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CapsuleShape2D_i747w")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:shape:radius")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [10.0]
+}
+
+[sub_resource type="Animation" id="Animation_gd47n"]
+resource_name = "idle"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6rr5r"]
+_data = {
+"RESET": SubResource("Animation_yvifc"),
+"duck": SubResource("Animation_n4x7u"),
+"idle": SubResource("Animation_gd47n")
+}
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_1k4q3")
+JUMP_FORCE = -430
+gravity = 1024
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, 9)
+shape = SubResource("CapsuleShape2D_i747w")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-31, -25)
+offset = Vector2(60.11, 0)
+zoom = Vector2(1.45, 2)
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_g7mks")
+animation = &"Duck"
+autoplay = "Idle"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../CollisionShape2D")
+libraries = {
+"": SubResource("AnimationLibrary_6rr5r")
+}

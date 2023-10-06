@@ -1,0 +1,5 @@
+48
+1
+1696483619
+de0022ba2b12f48c5386a9b7161fa020
+{ "dimensions": Vector2i(70, 70) }

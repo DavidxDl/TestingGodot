@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpqudlgn2rma"]
+
+[ext_resource type="Texture2D" uid="uid://bq2vi1yklec0x" path="res://Sprites/tile_0099.png" id="1_2epy2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7ube6"]
+radius = 78.1
+
+[node name="Area2D" type="Area2D"]
+position = Vector2(6, 190)
+scale = Vector2(0.5, 0.5)
+collision_layer = 4
+
+[node name="Tile0099" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(8.61364, -8.47338)
+texture = ExtResource("1_2epy2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7ube6")
